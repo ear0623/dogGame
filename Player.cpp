@@ -3,14 +3,14 @@
 
 FPlayer::FPlayer()
 {
-	HP = 0;
+	HP = 100;
 	Items.clear();
-	std::cout << "ÇÃ·¹ÀÌ¾î»ý¼ºµÊ" << std::endl;
+	
 }
 
 FPlayer::~FPlayer()
 {
-	std::cout << "ÇÃ·¹ÀÌ¾î¼Ò¸êµÊ" << std::endl;
+	
 }
 
 

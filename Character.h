@@ -13,9 +13,15 @@ public:
 	inline int GetHP() const { return HP; }
 	inline void SetHP(const int InNewHP);
 
+	void ApplyDamage(FCharacter* DamagedActor, float BaseDamage, FCharacter* Controller);
+	void TakeDamage(float BaseDamage, FCharacter* TargetActor);
+
 protected:
 	//상속, 접근불가.
 	int HP;
+	char Shape;
+	int PlayerX;
+	int PlayerY;
 
 private:
 	//상속X 접근불가

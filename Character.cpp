@@ -1,43 +1,59 @@
 #include "Character.h"
 #include <iostream>
 #include <conio.h>
+#include <Windows.h>
 
 FCharacter::FCharacter()
 {
-	std::cout << "생성됨" << std::endl;
+	Shape = 'P';
+	PlayerX = 10;
+	PlayerX = 10;
 }
 
 FCharacter::~FCharacter()
 {
-	std::cout << "제거됨" << std::endl;
+	
 }
 
 void FCharacter::Move()
 {
 	//FCharacter::Move();
-	char Key = _getch();
-	
+	COORD cur;
+	cur.X = PlayerX;
+	cur.Y = PlayerY;
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), cur);
 
-	if ('w' == Key ||'W' == Key)
+	while (true)
 	{
-		std::cout << "위로 움직인다." << std::endl;
+		char Key = _getch();
+		std::cout << Shape;
+
+		if ('w' == Key || 'W' == Key)
+		{
+			
+			PlayerY -= 1;
+		}
+		else if ('s' == Key || 'S' == Key)
+		{
+			
+			PlayerY += 1;
+		}
+		else if ('a' == Key || 'A' == Key)
+		{
+			
+			PlayerX -= 1;
+		}
+		else if ('d' == Key || 'D' == Key)
+		{
+			
+			PlayerX += 1;
+		}
+		else
+		{
+			break;
+		}
 	}
-	else if ('s' == Key || 'S' == Key)
-	{
-		std::cout << "아래로 움직인다." << std::endl;
-	}
-	else if ('a' == Key || 'A' == Key)
-	{
-		std::cout << "왼쪽으로 움직인다." << std::endl;
-	}
-	else if ('d' == Key || 'D' == Key)
-	{
-		std::cout << "오른쪽으로 움직인다." << std::endl;
-	}
-	else
-	{
-		
-	}
+	
 }
 
 inline void FCharacter::SetHP(const int InNewHP)
@@ -46,4 +62,26 @@ inline void FCharacter::SetHP(const int InNewHP)
 	{
 		HP = InNewHP;
 	}
+	else
+	{
+		std::cout << "HP already 0" << std::endl;
+	}
+}
+
+void FCharacter::ApplyDamage(FCharacter* DamagedActor, float BaseDamage, FCharacter* Controller)
+{
+	if (DamagedActor && (BaseDamage != 0.0f))
+	{
+		return DamagedActor->TakeDamage(BaseDamage,DamagedActor);
+	}
+}
+
+void FCharacter::TakeDamage(float BaseDamage, FCharacter* TargetActor)
+{
+	if (TargetActor)
+	{
+		TargetActor->HP -= BaseDamage;
+
+	}
+	
 }

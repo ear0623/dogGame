@@ -16,6 +16,8 @@ public:
 	//return값을 바꾸지 말고 확인만
 	const std::vector<int> DropItem();
 
+
+	
 	//캡슐화
 
 	
@@ -23,7 +25,7 @@ private:
 
 
 	
-	char Shape;
+	
 	//int Item[10];
 	std::vector<int> Items;
 

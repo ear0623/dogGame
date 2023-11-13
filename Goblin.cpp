@@ -3,6 +3,7 @@
 
 FGoblin::FGoblin()
 {
+	HP = 100;
 }
 
 FGoblin::~FGoblin()
@@ -11,5 +12,5 @@ FGoblin::~FGoblin()
 
 void FGoblin::Move()
 {
-	std::cout << "Goblin Move" << std::endl;
+	
 }

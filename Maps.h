@@ -2,12 +2,14 @@
 
 #include <vector>
 #include <string>
+#include <Windows.h>
 
 class FMaps
 {
 public:
 
 	FMaps();
+	FMaps(int _rows,int _cols, char initialValue);
 	~FMaps();
 
 	const void Draw();
@@ -19,7 +21,12 @@ private:
 
 	 int PlayerX;
 	 int PlayerY;
-	 char Shape;
+	 char ChracterShape;
+
+
+	 int rows;
+	 int cols;
+	 char MapShape;
 
 	std::vector<std::string>maps01;
 };

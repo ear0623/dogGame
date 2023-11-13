@@ -5,26 +5,18 @@
 
 FMaps::FMaps()
 {
-    Shape = 'p';
+    ChracterShape = 'p';
     PlayerX = 0;
     PlayerY = 0;
 
-	maps01 = { 
-        "*****************************************",
-        "*                                       *",
-        "*                                       *",
-        "*                                       *",
-        "*                                       *",
-        "*                                       *",
-        "*                                       *",
-        "*                                       *",
-        "*                                       *",
-        "*                                       *",
-        "*                                       *",
-        "*                                       *",
-        "*                                       *",
-        "*****************************************", };
+    rows = 50;
+    cols = 50;
+    MapShape = '*';
+    
+}
 
+FMaps::FMaps(int _rows, int _cols, char initialValue)
+{
     
 }
 
@@ -35,13 +27,17 @@ FMaps::~FMaps()
 
 const void FMaps::Draw()
 {
-    for (const auto& DrawMap : maps01)
+    for (const auto& row : maps01)
     {
-        std::cout << DrawMap << std::endl;
-        DrawMap[15]
+        for (const auto& cole : row)
+        {
+            std::cout << cole << " ";
+        }
+        std::cout << std::endl;
+
     }
 
-    GetPlaerPosition(15, 15);
+    
 
 }
 
@@ -55,12 +51,12 @@ const int FMaps::GetPlaerPosition(const int& XIndex, const int& YIndex)
 {
     for (std::vector<std::string>::iterator DrawMap= maps01.begin(); DrawMap!= maps01.end();DrawMap++)
     {
-        if(XIndex == maps01[X])
+       
     }
 
     PlayerX = XIndex;
     PlayerY = YIndex;
-    std::cout << Shape << std::endl;
+    std::cout << ChracterShape << std::endl;
 
     return PlayerX,PlayerY;
 }
